@@ -4,7 +4,7 @@ import os, re, requests, time
 
 LOOP_DURATION_SECONDS = int(os.getenv("LOOP_DURATION_MINUTES", "10")) * 60
 SENSOR_IP = os.getenv("SENSOR_IP", "10.0.28.81")
-TEMP_THRESHOLD = float(os.getenv("TEMP_THRESHOLD", "24.0"))
+TEMP_THRESHOLD = float(os.getenv("TEMP_THRESHOLD", "26.0"))
 
 SENSOR_LABELS = {
   "temperature": "nodemcu_temperature_celsius",
