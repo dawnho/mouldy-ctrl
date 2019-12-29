@@ -53,12 +53,12 @@ commands = {'info'     : '{"system":{"get_sysinfo":{}}}',
 # XOR Autokey Cipher with starting key = 171
 def encrypt(string):
 	key = 171
-	result = pack('>I', len(string))
+	result = pack('>I', len(string)).decode("utf-8")
 	for i in string:
 		a = key ^ ord(i)
 		key = a
 		result += chr(a)
-	return result
+	return bytes(result, "utf-8")
 
 def decrypt(string):
 	key = 171
@@ -96,7 +96,7 @@ try:
 	data = sock_tcp.recv(2048)
 	sock_tcp.close()
 
-	print "Sent:     ", cmd
-	print "Received: ", decrypt(data[4:])
+	print("Sent:     {}".format(cmd))
+	print("Received: {}".format(decrypt(data[4:])))
 except socket.error:
 	quit("Cound not connect to host " + ip + ":" + str(port))
