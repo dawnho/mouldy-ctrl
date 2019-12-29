@@ -26,7 +26,7 @@ def main():
       print("Turning Heater On")
       os.system("./tplink_smartplug.py -t {} -c on".format(SENSOR_IP))
     else:
-      print("Turning Heater On")
+      print("Turning Heater Off")
       os.system("./tplink_smartplug.py -t {} -c off".format(SENSOR_IP))
 
 while True:
